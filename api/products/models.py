@@ -1,13 +1,13 @@
 from django.db import models
 
-from api.users.models import Payment, User
+from users.models import Payment, User
 
 # Create your models here.
 
 
 class Product(models.Model):
     name = models.CharField(max_length=50)
-    price = models.DecimalField(decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
     stock = models.IntegerField()
     images_path = models.CharField(max_length=100)
     category = models.CharField(max_length=50)
