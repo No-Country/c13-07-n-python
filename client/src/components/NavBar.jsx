@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../assets/logo1.png';
 import './NavBar.css'
 
-const NavigationMenu = () => {
+const NavBar = () => {
   return (
     <nav>
       <div className="logo">
@@ -19,4 +19,4 @@ const NavigationMenu = () => {
   );
 };
 
-export default NavigationMenu;
+export default NavBar;

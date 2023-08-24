@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import EyeIcon from '../assets/EyeIcon.svg';
 import EmailIcon from '../assets/EmailIcon.svg';
-import './loggin.css';
+import './Loggin.css';
 
 //aca voy a hacer el componente de para el inicio de sesion de la pagina register
 function Loggin() {
@@ -57,12 +57,12 @@ function Loggin() {
         <section className="loggin-box">
             <h1>Inicia Sesión</h1>
             {statusMessage && <p className={`status-message ${statusMessage.includes('exitoso') ? 'success' : 'error'}`}>{statusMessage}</p>}
-            <div className="input-group">
+            <div className="input-group1">
                 <h2>Email</h2>
                 <input type="text" placeholder="david@example.com" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <span><img src={EmailIcon} alt="Mail Icon" /></span>
             </div>
-            <div className="input-group">
+            <div className="input-group1">
                 <h2>Contraseña</h2>
                 <input type="password" placeholder="*********" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <span><img src={EyeIcon} alt="Eye Icon" /></span>
@@ -72,12 +72,6 @@ function Loggin() {
             </div>
             <div className='button-group'>
                 <button onClick={handleLoggin}>Iniciar Sesión</button>
-            </div>
-            <div className='question2'>
-                ¿No tienes cuenta?
-                <span>
-                    <a href='##'>Regístrate</a>
-                </span>
             </div>
         </section>
     );

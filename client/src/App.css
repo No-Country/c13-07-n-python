@@ -4,31 +4,32 @@
     padding: 0;
 }
 
-.nav-component{
+.nav-container {
     padding: 10px;
     padding-left: 90px;
 }
 
-.loggin-group{
+.body-group {
     display: flex;
-    ;
 }
 
-.loggin-component{
+.signup-container {
     width: 500px;
     min-width: 400px;
     max-width: 600px;
-    padding-left: 100px;
-    padding-top: 100px;
+    margin-top: 80px;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 
-.img-element{
+.img-container {
     width: 100px;
-max-width: 100px;
-min-width: 100px;
+    max-width: 100px;
+    min-width: 100px;
 }
 
-.img-element img{
+.img-container img {
+    margin-top: 50px;
     width: 500px;
     border-radius: 100px;
 }
