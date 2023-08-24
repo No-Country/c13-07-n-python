@@ -1,0 +1,27 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+  }
+  
+  .logo img {
+    width: 100px;
+  }
+  
+  .menu {
+    list-style: none;
+    display: flex;
+
+  }
+  
+  .menu li {
+    margin-right: 35px;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+  }
+  
