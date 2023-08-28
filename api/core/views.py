@@ -13,6 +13,11 @@ from django.core.mail import EmailMessage
 from django.contrib.auth.tokens import default_token_generator
 from .models import User
 from password_validator import PasswordValidator
+from django.core.exceptions import ObjectDoesNotExist
+import random
+
+def generate_verification_code():
+    return random.randint(1000, 9999)
 
 # Create your views here.
 
@@ -26,7 +31,6 @@ schema \
 .has().no().spaces()\
 
 class RegisterUser(APIView):
-
     def post(self, request):
         try:
             serializer = UserSerializer(data=request.data)
@@ -44,8 +48,9 @@ class RegisterUser(APIView):
                                 '• Debe contener al menos un número.\n' \
                                 '• No debe contener espacios.'
                 return Response({'error': error_message}, status=status.HTTP_400_BAD_REQUEST)
-
-            user = serializer.save()
+            
+            verification_code = generate_verification_code()
+            user = serializer.save(verification_code=verification_code)
 
             group_name = 'Customer'  # Nombre del grupo "Customer"
             group = Group.objects.get(name=group_name)
@@ -53,7 +58,6 @@ class RegisterUser(APIView):
 
             success_message = "Usuario registrado exitosamente."
             return Response({'message': success_message}, status=status.HTTP_201_CREATED)
-        
         except serializers.ValidationError as e:
             errors = {}
 
@@ -61,8 +65,8 @@ class RegisterUser(APIView):
                 errors[field] = error_messages[0] if isinstance(error_messages, list) else error_messages
 
             return Response({'errors': errors}, status=status.HTTP_400_BAD_REQUEST)
-        except:
-            return Response({'error': 'No se pudo registrar al usuario'}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({'error': f'No se pudo registrar al usuario. Detalle del error: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)
 
 # Verificación de grupos
 class RolView(APIView):
@@ -144,7 +148,7 @@ class Login(TokenObtainPairView):
             password=password
         )
 
-        if user:
+        if user and user.verified_account:
             login_serializer = self.serializer_class(data=request.data)
             if login_serializer.is_valid():
                 user_serializer = UserSerializer(user)
@@ -155,7 +159,10 @@ class Login(TokenObtainPairView):
                     'msg': 'Inicio de sesión exitoso.'
                 }, status = status.HTTP_200_OK)
             return Response({'error': 'Email o Contraseña incorrectos.'}, status=status.HTTP_400_BAD_REQUEST)
-        return Response({'error': 'Email o Contraseña incorrectos.'}, status=status.HTTP_400_BAD_REQUEST)
+        elif user:
+            return Response({'error': 'La cuenta no está verificada.'}, status=status.HTTP_401_UNAUTHORIZED)
+        else:
+            return Response({'error': 'Email o Contraseña incorrectos.'}, status=status.HTTP_400_BAD_REQUEST)
 
 class Logout(APIView):
     """
@@ -239,7 +246,7 @@ class SendEmailView(APIView):
             return Response({'error': 'El usuario no existe'}, status=404)
         
         token = default_token_generator.make_token(user)
-        verify_account_url = f"http://127.0.0.1:5173/verificar-cuenta/{user.id}/{token}/"
+        verify_account_url = f"http://localhost:5173/verificar-cuenta/{user.id}/{token}/"
         
         message = f'Hola {user.name},\n\n'
         message += 'Te damos la bienvenida a OTOÑO\n'
@@ -247,6 +254,7 @@ class SendEmailView(APIView):
         message += 'Primeramente debes activar tu cuenta. Ingresa en el siguiente link.\n'
         message += f'{verify_account_url}\n\n'
         message += 'Ingresa el siguiente código de verificación.\n\n'
+        message += f'{user.verification_code}\n\n'
 
         send_mail(
             'Bienvenido a OTOÑO!',
@@ -257,6 +265,25 @@ class SendEmailView(APIView):
         )
 
         return Response({'message': 'Correo enviado correctamente'})
+    
+class VerifyAccountView(APIView):
+    def post(self, request, id, token):
+        try:
+            user = User.objects.get(id=id)
+        except ObjectDoesNotExist:
+            return Response({'error': 'El usuario no existe'}, status=status.HTTP_404_NOT_FOUND)
+        
+        if default_token_generator.check_token(user, token):
+            verification_code = request.data['verification_code']
+            if verification_code['verification_code'] == user.verification_code:
+                user.verified_account = True
+                user.verification_code = None  # Vaciar el campo verification_code
+                user.save()
+                return Response({'message': 'Cuenta verificada exitosamente'}, status=status.HTTP_200_OK)
+            else:
+                return Response({'error': 'El código de verificación no coincide'}, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response({'error': 'Token inválido'}, status=status.HTTP_400_BAD_REQUEST)
 
 class PasswordResetView(APIView):
     def post(self, request):
@@ -266,13 +293,18 @@ class PasswordResetView(APIView):
             user = User.objects.get(email=email)
         except User.DoesNotExist:
             return Response({'error': 'No se encontró ningún usuario asociado a ese correo electrónico'}, status=404)
+        
+        verification_code = generate_verification_code()
+        user.verification_code = verification_code
+        user.save()
 
         token = default_token_generator.make_token(user)
-        reset_password_url = f"http://127.0.0.1:5173/reestablecer-clave/{user.id}/{token}/"
+        reset_password_url = f"http://localhost:5173/reestablecer-clave/{user.id}/{token}/"
 
         message = f'Hola {user.name},\n\n'
         message += 'Has solicitado restablecer tu contraseña. Puedes hacerlo a través del siguiente enlace:\n'
         message += f'{reset_password_url}\n\n'
+        message += f'Tu código de verificación es: {verification_code}\n\n'
         message += 'Si no has solicitado restablecer tu contraseña, ignora este correo.\n\n'
         message += 'Gracias,\n'
         message += 'El equipo de OTOÑO'
@@ -299,11 +331,16 @@ class PasswordResetValidateView(APIView):
             return Response({'error': 'ID de usuario inválido'}, status=status.HTTP_404_NOT_FOUND)
 
         if not default_token_generator.check_token(user, token):
-            return Response({'error': 'Token inválido'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'error': 'Token inválido'}, status=status.HTTP_400_BAD_REQUEST) 
 
-        # Obtener la nueva contraseña del cuerpo de la solicitud
+        # Obtener el código de verificación y la nueva contraseña del cuerpo de la solicitud
+        verification_code = request.data.get('verification_code')
         new_password = request.data.get('new_password')
         is_valid_password = schema.validate(new_password)
+        
+        # Verificar si el código de verificación coincide
+        if verification_code != user.verification_code:
+            return Response({'error': 'Código de verificación incorrecto'}, status=status.HTTP_400_BAD_REQUEST)
 
         if not is_valid_password:
             error_message = 'La contraseña debe cumplir los siguientes requisitos:\n' \
@@ -316,7 +353,8 @@ class PasswordResetValidateView(APIView):
 
         # Actualizar la contraseña en el serializador del usuario
         user_data = {
-            'password': new_password
+            'password': new_password,
+            'verification_code': None
         }
         serializer = UserSerializer(user, data=user_data, partial=True)
         serializer.is_valid(raise_exception=True)

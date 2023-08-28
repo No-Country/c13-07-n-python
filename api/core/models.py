@@ -14,6 +14,8 @@ class UserManager(BaseUserManager):
         return user
     
     def create_superuser(self, email, password, **extra_fields):
+        if 'birthday' in extra_fields:
+            extra_fields.pop('birthday')
         user = self.create_user(email=email, password=password, is_staff=True, is_superuser=True, **extra_fields)
         user.save(using=self._db)
 
@@ -22,10 +24,12 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
-    birthday = models.DateField()
+    birthday = models.DateField(null=True, blank=True)
     email = models.EmailField(unique=True)
     verified_account = models.BooleanField(default=False)
-    verification_code = models.PositiveIntegerField(default=None)
+    verification_code = models.PositiveIntegerField(null=True, blank=True, default=None)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     objects = UserManager()
 
@@ -33,7 +37,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def save(self, *args, **kwargs):
         # Verificar si el usuario creado es un superuser
+        is_new_user = not self.pk
         if is_new_user:
+            if self.is_superuser:
+                self.birthday = None
+
             if not self.is_superuser: # Si el usuario creado no es un superuser se procede a encriptar la contraseña (Por defecto, al superuser se le encripta la contraseña)
                 self.set_password(self.password)
         else:
