@@ -1,0 +1,12 @@
+
+
+.color-button{
+    background-color: var(--dark);
+    border: none;
+    font-family: 'Monstserrat', sans-serif;
+}
+
+.color-button:hover{
+    background-color: var(--dark);
+    opacity: 0.8;
+}
