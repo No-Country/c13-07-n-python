@@ -1,12 +1,16 @@
 import { createAuthAxios } from '../../api/authtoken.api'
 import { Cookies } from 'react-cookie'
 import { useEffect } from 'react';
+import { useAuthStore } from '../../useAuthStore'
+import { useNavigate } from 'react-router-dom';
 
 const client = createAuthAxios("http://127.0.0.1:8000/")
 const cookies = new Cookies();
 
 
 const Logout = () => {
+    const navigate = useNavigate();
+    const authStore = useAuthStore();
     const handleLogout = async () => {
         try {
           await client.post('/core/logout/');
@@ -17,8 +21,10 @@ const Logout = () => {
           cookies.remove('sessionid')
           cookies.remove('csrftoken')
 
+          authStore.logout();
+
           setTimeout(() => {
-            window.location.href = '/login';
+            navigate('/login')
           }, 1000); // Redirigir después de 1 segundo
         } catch (error) {
           console.error(error);

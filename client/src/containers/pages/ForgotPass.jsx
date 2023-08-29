@@ -4,9 +4,11 @@ import { forgotPass } from '../../api/users.api'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import '../../styles/RegisterUser.css'
+import { useState } from 'react';
 
 export default function ForgotPass() {
     const { register, handleSubmit, formState: {errors}, setError, clearErrors } = useForm();
+    const [email, setEmail] = useState('');
     const navigate = useNavigate();
 
     const showCustomToast = (message) => {
@@ -48,7 +50,9 @@ export default function ForgotPass() {
         console.log('Error adicional del servidor:', errorMessage);
       }})
 
-      const handleEmailChange = () => {
+      const handleEmailChange = (e) => {
+        const lowerCaseEmail = e.target.value.toLowerCase()
+        setEmail(lowerCaseEmail)
         clearErrors('email')
       }
 
@@ -71,6 +75,7 @@ export default function ForgotPass() {
                     className="simple mb-3"
                     name="email" 
                     type="email"
+                    value={email}
                     placeholder="david@example.com"
                     {...register("email", { required: true })}
                     onChange={handleEmailChange}
