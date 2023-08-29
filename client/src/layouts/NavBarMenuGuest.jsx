@@ -4,7 +4,7 @@ import '../styles/NavBarMenu.css'
 import logo from '../assets/logo1.png';
 import { AiOutlinePoweroff, AiOutlineUser } from "react-icons/ai";
 
-const NavBarMenuGuess = () => {  
+const NavBarMenuGuest = () => {  
   return (
 
     <div>
@@ -47,4 +47,4 @@ const NavBarMenuGuess = () => {
   )
 }
 
-export default NavBarMenuGuess
+export default NavBarMenuGuest
