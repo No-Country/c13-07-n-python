@@ -14,9 +14,27 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="API E-Commerce Documentacion",
+      default_version='v1.0',
+      description="Documentacion General de las APIS E-Commerce",
+      terms_of_service="",
+      license=openapi.License(name="BSD License"),
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('core/', include('core.urls')),
+    path('docs/', schema_view.with_ui('swagger', cache_timeout=0)),
 ]
