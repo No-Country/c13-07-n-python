@@ -1,7 +1,6 @@
 import { createAuthAxios } from '../../api/authtoken.api'
 import { Cookies } from 'react-cookie'
 import { useEffect } from 'react';
-import { useAuth } from '../../AuthContext';
 
 const client = createAuthAxios("http://127.0.0.1:8000/")
 const cookies = new Cookies();
