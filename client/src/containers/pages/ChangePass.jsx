@@ -2,10 +2,11 @@ import {useState } from 'react';
 import {useForm} from 'react-hook-form'
 import { Form, Button } from "react-bootstrap";
 import {resetPass} from '../../api/users.api'
-import {useNavigate, useParams} from 'react-router-dom'
+import {Link, useNavigate, useParams} from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import '../../styles/RegisterUser.css'
 import { VscEye, VscEyeClosed } from "react-icons/vsc"
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 export default function ChangePass() {
     const { register, handleSubmit, formState: {errors}, setValue, setError, clearErrors } = useForm();
@@ -127,6 +128,8 @@ return (
             )}
     
             <Button variant="primary" size="lg" type="submit" className='mb-3 p-2'>Cambiar contraseña</Button>
+
+            <p><Link className='link' to='/login'><span className='link-dark'><AiOutlineArrowLeft/></span>Regresar a Iniciar sesión</Link></p>
             
         </Form>
         </div>

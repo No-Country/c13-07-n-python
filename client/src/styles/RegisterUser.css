@@ -78,6 +78,10 @@ p {
     font-size: 15px;
 }
 
+.link {
+    text-decoration: none;
+}
+
 .link-dark {
     color: #000;
     font-weight: 700;
