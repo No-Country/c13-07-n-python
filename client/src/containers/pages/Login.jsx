@@ -10,6 +10,7 @@ import jwt_decode from 'jwt-decode';
 import { VscEye, VscEyeClosed } from "react-icons/vsc"
 import { MdEmail } from "react-icons/md"
 import '../../styles/RegisterUser.css'
+import { useAuthStore } from '../../useAuthStore'
 
 const cookies = new Cookies();
 
@@ -19,23 +20,26 @@ const client = axios.create(
   });
 
   const Login = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [showPwd, setShowPwd] = useState(false);
+    const authStore = useAuthStore();
   
-    const handleEmailChange = (event) => {
-      setEmail(event.target.value);
+    const handleEmailChange = (e) => {
+      const lowercaseEmail = e.target.value.toLowerCase()
+      setEmail(lowercaseEmail);
       setError('')
     };
   
-    const handlePasswordChange = (event) => {
-      setPassword(event.target.value);
+    const handlePasswordChange = (e) => {
+      setPassword(e.target.value);
       setError('')
     };
   
-    const submitLogin = async (event) => {
-      event.preventDefault();
+    const submitLogin = async (e) => {
+      e.preventDefault();
   
       try {
         const response = await client.post('/core/login/', {
@@ -57,12 +61,15 @@ const client = axios.create(
 
         const rolResponse = await performApiRequest(getRol, userId);
         const rol = rolResponse.message;
+
+        authStore.login(access, refreshToken);
+        authStore.setUserRole(rol);
         
         // Redirigir según el rol del usuario
         if (rol === 'Staff') {
-          window.location.href = '/home-staff'
+          navigate('/home-staff')
         } else {
-          window.location.href = '/home'
+          navigate('/home-customer')
         }
   
       } catch (error) {
