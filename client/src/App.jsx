@@ -19,24 +19,60 @@ import Logout from './containers/pages/Logout'
 import NavBarMenuCustomer from './layouts/NavBarMenuCustomer'
 /*        Staff         */
 import NavBarMenuStaff from './layouts/NavBarMenuStaff'
+import { Cookies } from "react-cookie"
+import jwt_decode from 'jwt-decode'
+import { useState, useEffect } from 'react'
+import { performApiRequest, getRol } from './api/users.api'
 
 function App() {
+  const cookies = new Cookies();
+  const accessToken = cookies.get('access');
+  const [userRole, setUserRole] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const authStore = useAuthStore();
+
+  useEffect(() => {
+    if (accessToken) {
+      const decodedToken = jwt_decode(accessToken);
+      const userId = decodedToken?.user_id;
+
+      const fetchUserRole = async () => {
+        try {
+          const response = await performApiRequest(() => getRol(userId));
+          const { message, error } = response;
+
+          if (message) {
+            setUserRole(message);
+
+          } else {
+            // Manejar el error
+            console.error(error);
+          }
+        } catch (error) {
+          // Manejar el error
+          console.error(error);
+          setIsLoggedIn(false)
+        }
+      };
+
+      fetchUserRole();
+    }
+  }, [accessToken]);
 
   // Función auxiliar para comprobar si el usuario está autenticado
   const isAuthenticated = () => {
-    return authStore.accessToken != null;
+    return accessToken != null;
   };
+
+  useEffect(() => {
+    setIsLoggedIn(isAuthenticated());
+  }, [accessToken]);
 
   return (
     <BrowserRouter>
-        {authStore.isLoggedIn ? null : <NavBarMenuGuest isLoggedIn={authStore.isLoggedIn} />}
+        {isLoggedIn ? null : <NavBarMenuGuest isLoggedIn={isLoggedIn} />}
       <Routes>
-        <Route path='/login' element={authStore.isLoggedIn ? (
-          authStore.userRole === 'Customer' ? <Navigate to="/home-customer" /> : <Navigate to="/home-staff" />
-        ) : (
-          <Login />
-        )} />
+        <Route path='/login' element={isLoggedIn ? <Navigate to="/home" /> : <Login />} />
         <Route path="/registrarme/" element={<RegisterUser />} />
         <Route path="/verificar-cuenta/:id/:token" element={<VerifyUser />} />
         <Route path="/olvide-clave/" element={<ForgotPass />} />
@@ -45,8 +81,8 @@ function App() {
         {isAuthenticated() ? (
               <>
                 {/* Rutas para el rol de Customer */}
-                {authStore.userRole === 'Customer' && (
-                  <Route path="/home-customer" element={<NavBarMenuCustomer />}>
+                {userRole === 'Customer' && (
+                  <Route path="/home" element={<NavBarMenuCustomer />}>
                     {/* <Route path="mi-perfil" element={<MyProfile />} /> */}
                     {/* <Route path="*" element={<Error404 />} /> */}
                   </Route>
@@ -54,8 +90,8 @@ function App() {
 
                 {/* Rutas para el rol de Staff */}
                 {/* STAFF */}
-                {authStore.userRole === 'Staff' && (
-                  <Route path="/home-staff" element={<NavBarMenuStaff />}>
+                {userRole === 'Staff' && (
+                  <Route path="/home" element={<NavBarMenuStaff />}>
                     {/* <Route path="mi-perfil" element={<MyProfile />} /> */}
                     {/* <Route path="*" element={<Error404 />} /> */}
                   </Route>
