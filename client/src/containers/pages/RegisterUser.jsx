@@ -11,6 +11,7 @@ import { MdEmail } from "react-icons/md"
 
 export default function RegisterUser() {
     const { register, handleSubmit, formState: {errors}, setValue, reset, setError, clearErrors } = useForm()
+    const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState(null)
     const navigate = useNavigate()
     const [showPwd, setShowPwd] = useState(false);
@@ -81,11 +82,13 @@ export default function RegisterUser() {
       }
     })
 
-    const handleEmailChange = () => {
+    const handleEmailChange = (e) => {
+      const lowercaseEmail = e.target.value.toLowerCase()
+      setEmail(lowercaseEmail);
       clearErrors('email')
       setEmailError(null)
     }
-  
+
     const handleFormReset = () => {
       reset()
       clearErrors()
@@ -141,6 +144,7 @@ export default function RegisterUser() {
               <Form.Control
                 className="simple"
                 type="email"
+                value={email}
                 placeholder="david@example.com"
                 {...register("email")}
                 onChange={handleEmailChange}

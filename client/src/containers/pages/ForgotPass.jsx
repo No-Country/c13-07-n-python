@@ -1,12 +1,15 @@
 import { useForm } from 'react-hook-form'
 import { Form, Button } from "react-bootstrap";
 import { forgotPass } from '../../api/users.api'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import '../../styles/RegisterUser.css'
+import { useState } from 'react';
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 export default function ForgotPass() {
     const { register, handleSubmit, formState: {errors}, setError, clearErrors } = useForm();
+    const [email, setEmail] = useState('');
     const navigate = useNavigate();
 
     const showCustomToast = (message) => {
@@ -48,7 +51,9 @@ export default function ForgotPass() {
         console.log('Error adicional del servidor:', errorMessage);
       }})
 
-      const handleEmailChange = () => {
+      const handleEmailChange = (e) => {
+        const lowerCaseEmail = e.target.value.toLowerCase()
+        setEmail(lowerCaseEmail)
         clearErrors('email')
       }
 
@@ -71,6 +76,7 @@ export default function ForgotPass() {
                     className="simple mb-3"
                     name="email" 
                     type="email"
+                    value={email}
                     placeholder="david@example.com"
                     {...register("email", { required: true })}
                     onChange={handleEmailChange}
@@ -95,6 +101,8 @@ export default function ForgotPass() {
                 </Form.Group>
                
                 <Button variant="primary" size="lg" type="submit" className='mb-3 p-2'>Enviar</Button>
+
+                <p><Link className='link' to='/login'><span className='link-dark'><AiOutlineArrowLeft/></span>Regresar a Iniciar sesión</Link></p>
               
                 
             </Form>
