@@ -22,15 +22,15 @@ from django.contrib import admin
 from django.urls import path, include
 
 schema_view = get_schema_view(
-   openapi.Info(
-      title="API E-Commerce Documentacion",
-      default_version='v1.0',
-      description="Documentacion General de las APIS E-Commerce",
-      terms_of_service="",
-      license=openapi.License(name="BSD License"),
-   ),
-   public=True,
-   permission_classes=(permissions.AllowAny,),
+    openapi.Info(
+        title="API E-Commerce Documentacion",
+        default_version='v1.0',
+        description="Documentacion General de las APIS E-Commerce",
+        terms_of_service="",
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
 )
 
 urlpatterns = [

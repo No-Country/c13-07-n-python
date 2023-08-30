@@ -107,7 +107,7 @@ DATABASES = {
         'USER': config('MYSQL_USER'),
         'PASSWORD': config('MYSQL_PASSWORD'),
         'NAME': config('MYSQL_NAME'),
-        'OPTIONS':{
+        'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
         }
     }
@@ -139,7 +139,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # Servidor SMTP de Gmail
 EMAIL_PORT = 587  # Puerto de Gmail para TLS/STARTTLS
 EMAIL_USE_TLS = True  # Utilizar TLS para una conexión segura
-EMAIL_HOST_USER = config('EMAIL')  # Correo electrónico de Gmail desde el que enviarás los correos
+# Correo electrónico de Gmail desde el que enviarás los correos
+EMAIL_HOST_USER = config('EMAIL')
 EMAIL_HOST_PASSWORD = config('EMAIL_PASS')  # Contraseña de tu cuenta de Gmail
 
 
