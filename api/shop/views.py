@@ -3,8 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import CartItem, Product
-from shop.serializers import CartItemSerializer, ProductSerializer
+from .models import CartItem, Product, Purchase
+from shop.serializers import CartItemSerializer, ProductSerializer, PurchaseSerializer
 
 class CartItemAPIView(APIView):
     def get(self, request):
@@ -18,5 +18,10 @@ class ProductAPIView(APIView):
         products_serializer = ProductSerializer(products, many=True)
         return Response(products_serializer.data)
 
+class PurchaseAPIView(APIView):
+    def get(self, request):
+        purchases = Purchase.objects.all()
+        purchases_serializer = PurchaseSerializer(purchases, many=True)
+        return Response(purchases_serializer.data)
 
 
