@@ -1,6 +1,6 @@
 import './styles/index.css'
 import { useAuthStore } from './useAuthStore'
-import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom' 
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 /*        Global          */
 // import Error404 from '../src/containers/errors/Error404'
@@ -72,7 +72,7 @@ function App() {
 
   return (
     <BrowserRouter>
-        {isLoggedIn ? null : <NavBarMenuGuest isLoggedIn={isLoggedIn} />}
+      {isLoggedIn ? null : <NavBarMenuGuest isLoggedIn={isLoggedIn} />}
       <Routes>
         <Route path='/login' element={isLoggedIn ? <Navigate to="/home" /> : <Login />} />
         <Route path="/registrarme/" element={<RegisterUser />} />
@@ -81,38 +81,38 @@ function App() {
         <Route path="/reestablecer-clave/:id/:token" element={<ChangePass />} />
         {/* Rutas protegidas */}
         {isAuthenticated() ? (
-              <>
-                {/* Rutas para el rol de Customer */}
-                {userRole === 'Customer' && (
-                  <Route path="/" element={<NavBarMenuCustomer />}>
-                    { <Route path="/" element={<HomeCustomer />} /> }
-                    { <Route path="mi-perfil" element={<MyProfile />} /> }
-                    { <Route path="mi-carrito" element={<MyCart />} /> }
-                    {/* <Route path="*" element={<Error404 />} /> */}
-                  </Route>
-                )}
+          <>
+            {/* Rutas para el rol de Customer */}
+            {userRole === 'Customer' && (
+              <Route path="/" element={<NavBarMenuCustomer />}>
+                {<Route path="/" element={<HomeCustomer />} />}
+                {<Route path="mi-perfil" element={<MyProfile />} />}
+                {<Route path="mi-carrito" element={<MyCart />} />}
+                {/* <Route path="*" element={<Error404 />} /> */}
+              </Route>
+            )}
 
-                {/* Rutas para el rol de Staff */}
-                {/* STAFF */}
-                {userRole === 'Staff' && (
-                  <Route path="/home" element={<NavBarMenuStaff />}>
-                    {/* <Route path="mi-perfil" element={<MyProfile />} /> */}
-                    {/* <Route path="*" element={<Error404 />} /> */}
-                  </Route>
-                )}
-                {/* <Route path="/editar-perfil" element={<UpdateUser />} /> */}
-                <Route path="/logout" element={<Logout />} />
-              </>
-            ) : (
-              // Redireccionar a /login si no está autenticado
-              <Route path="/" element={<Navigate to="/login" />} />
-              )}
+            {/* Rutas para el rol de Staff */}
+            {/* STAFF */}
+            {userRole === 'Staff' && (
+              <Route path="/home" element={<NavBarMenuStaff />}>
+                {/* <Route path="mi-perfil" element={<MyProfile />} /> */}
+                {/* <Route path="*" element={<Error404 />} /> */}
+              </Route>
+            )}
+            {/* <Route path="/editar-perfil" element={<UpdateUser />} /> */}
+            <Route path="/logout" element={<Logout />} />
+          </>
+        ) : (
+          // Redireccionar a /login si no está autenticado
+          <Route path="/" element={<Navigate to="/login" />} />
+        )}
       </Routes>
 
       <Toaster />
       {/* <Footer></Footer> */}
-    </BrowserRouter>  
+    </BrowserRouter>
   )
 }
 
-export default App
+export default App;
