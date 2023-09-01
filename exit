@@ -1,0 +1,215 @@
+[33mcommit c056139133be286a338a9b39bfdd6139c330e4c5[m[33m ([m[1;36mHEAD -> [m[1;32mFront[m[33m)[m
+Author: Nahuel Lupe <nahuellupe@hotmail.com>
+Date:   Thu Aug 31 22:05:05 2023 -0300
+
+    unifique el proyecto a shop actualizado al 31/8 y cree el componente MyProfile para terminar el diseño e implementar funcionalidad con la BBDD (Metodo: PUT y GET)
+
+[33mcommit b9061d1c7c3eb74140a8521fc3b81799fdc4f34d[m[33m ([m[1;31morigin/shop[m[33m, [m[1;32mshop[m[33m)[m
+Merge: fdc929b 8a777d7
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Wed Aug 30 17:42:53 2023 -0300
+
+    Merge branch 'shop' of https://github.com/No-Country/c13-07-n-python into shop
+
+[33mcommit fdc929b9f30d1582a86b17769835fbf152dcc165[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Wed Aug 30 17:42:12 2023 -0300
+
+    Fix Login and App.
+
+[33mcommit 8a777d73765af0968e095c37c7addeed8b5195c4[m
+Merge: b4b25af 27039c3
+Author: jusruizsa <sruizs.jr@gmail.com>
+Date:   Wed Aug 30 14:12:27 2023 -0500
+
+    Merge branch 'shop' of github.com:No-Country/c13-07-n-python into shop
+
+[33mcommit b4b25afc36fbee88fb3831620c07d964626a9958[m
+Author: jusruizsa <sruizs.jr@gmail.com>
+Date:   Wed Aug 30 14:11:56 2023 -0500
+
+    add shop models
+
+[33mcommit 147e1d0d1f1122464c72834678f2a51274226ca9[m
+Author: jusruizsa <sruizs.jr@gmail.com>
+Date:   Wed Aug 30 14:09:42 2023 -0500
+
+    ignore vscode config
+
+[33mcommit 27039c3acf8b3c5f804c7999d26612f993412ffb[m
+Merge: edc80d3 67f537e
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Tue Aug 29 04:45:48 2023 -0300
+
+    Merge branch 'core' into shop
+
+[33mcommit 67f537eb6f469947a39340145efcee1263d9edf5[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Tue Aug 29 04:45:31 2023 -0300
+
+    Fixes.
+
+[33mcommit edc80d35fa4d92dcc43037d7382710ae22254e1d[m
+Merge: 4879a50 7d31e1d
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Tue Aug 29 04:26:43 2023 -0300
+
+    Merge branch 'core' into shop
+
+[33mcommit 7d31e1d380025aa5afa55645897583423d7642e8[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Tue Aug 29 04:24:16 2023 -0300
+
+    Rename component.
+
+[33mcommit fa942b7547901fc195a7ea5a06a405e6f4064e3a[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Tue Aug 29 04:22:49 2023 -0300
+
+    useAuthStore and useNavigate implementation.
+    lowerCase email validation.
+
+[33mcommit f97407d49f6c95ad75029d3a4c56b6970cb508a9[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Tue Aug 29 04:21:00 2023 -0300
+
+    Zustand implementation for global status management
+
+[33mcommit 4879a508e0b3aaababf50b86f2cbed94c6dc4af5[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 21:01:05 2023 -0300
+
+    Update Logout.jsx
+
+[33mcommit bf31bee84a8327f2835e1211461caab12aceca3d[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 21:00:21 2023 -0300
+
+    Update Logout.jsx
+
+[33mcommit 4e5ab8a1cf811c1e016bacc9458117ed1db79481[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 20:55:16 2023 -0300
+
+    Update requirements.txt
+
+[33mcommit 69d7a1dd9be665ec9370d3f16cbe7b6ddf36c8f4[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 20:54:29 2023 -0300
+
+    Update requirements.txt
+
+[33mcommit e59cf65f554ea2993aaf0127a3fcb39277377f20[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 14:30:04 2023 -0300
+
+    Init app shop.
+
+[33mcommit af7e1b7c095353e0bc30125c09493ccfc391c4a8[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 14:02:14 2023 -0300
+
+    client update package.
+
+[33mcommit 58c0ec756fe95753b19554982767ca8e4a8cc459[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 14:01:59 2023 -0300
+
+    client update src.
+
+[33mcommit 632aba52e59a35c6dca9e5c6f2e27a7a298a1e18[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 14:01:30 2023 -0300
+
+    client update styles.
+
+[33mcommit e48e031f04aea1d395d1dcac82fc8d983e0317a8[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 14:01:20 2023 -0300
+
+    client update layouts.
+
+[33mcommit 68896d6697593ce7a2ffb0ae7b76121411e584a1[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 14:01:10 2023 -0300
+
+    client update containers > pages.
+
+[33mcommit 41fd755dabf0054613db7be0ea98ce56180abab7[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 14:00:30 2023 -0300
+
+    client update components.
+
+[33mcommit 11841cf21d7ccb592db2ec40283a93daf8dc5c4a[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 14:00:13 2023 -0300
+
+    client update assets.
+
+[33mcommit 013cee0e1feb73492f1f931778513ff172aa7d60[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 14:00:00 2023 -0300
+
+    client update api.
+
+[33mcommit 200c431d4d7c710197a06a485cb8b0f170f62314[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 13:57:04 2023 -0300
+
+    Ecommerce update settings, urls.
+
+[33mcommit 880cfedf00afc11b6b80458ee2fddd7a03f0799d[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Mon Aug 28 13:56:16 2023 -0300
+
+    Core Update model, views, urls.
+
+[33mcommit 30147371718a262c9ca1d192d718e4e109d82f79[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Thu Aug 24 16:29:36 2023 -0300
+
+    Core and Settings.py update.
+
+[33mcommit 0ad4bc015dad4464ea166fd27bf9da10b7d731cf[m[33m ([m[1;31morigin/dev[m[33m)[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Tue Aug 22 01:05:51 2023 -0300
+
+    .env.example sin datos.
+
+[33mcommit 260d8abde9534cd038d1b895a1f4a8b8e81d6b38[m
+Merge: 3c50a85 21bea7a
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Tue Aug 22 01:01:31 2023 -0300
+
+    Merge branch 'main' of https://github.com/No-Country/c13-07-n-python
+
+[33mcommit 3c50a85626d2fb82462662966d52e5fffda38d55[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Tue Aug 22 00:57:38 2023 -0300
+
+    .gitignore y actualización de README.
+
+[33mcommit 3b1cad4a925cfae532a79bad455702ec1b027546[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Tue Aug 22 00:57:01 2023 -0300
+
+    Inicialización de Cliente en React con Vite.
+
+[33mcommit 0a0a95be80ee34292bb01a5cd2ee0affc1e990fc[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Tue Aug 22 00:56:17 2023 -0300
+
+    Inicialización de proyecto en Django.
+
+[33mcommit 21bea7a90b20f5cdeea7581b46c700e3fd141f22[m
+Author: Ezequiel <ezequiel.martinez99@gmail.com>
+Date:   Mon Aug 21 12:53:39 2023 -0300
+
+    Creación el archivo .gitignore
+
+[33mcommit 4ccb114598d9173c4985901562c3b8e58a27eab4[m
+Author: Brandon Barrios <brandonnbarrios@gmail.com>
+Date:   Fri Aug 11 14:05:47 2023 -0300
+
+    First commit

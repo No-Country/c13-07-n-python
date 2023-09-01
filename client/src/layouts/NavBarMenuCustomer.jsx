@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom"
 import Nav from 'react-bootstrap/Nav';
-import logo from '../assets/logo1.png';
+//import logo from '../assets/logo1.png';
 import '../styles/NavBarMenu.css'
 
 const NavBarMenuCustomer = () => {
@@ -27,9 +27,9 @@ const NavBarMenuCustomer = () => {
                   <li className="nav-item">
                     <Nav.Link as={Link} to='/categorias' className="nav-link text-black navbar-link" href="#">Categorías</Nav.Link>
                   </li>
-                  {/* <li className="nav-item">
+                  { <li className="nav-item">
                     <Nav.Link as={Link} to='/mi-perfil' className="nav-link text-black navbar-link" href="#">Mi perfil</Nav.Link>
-                  </li> */}
+                  </li> }
                   <li className="nav-item">
                     <Nav.Link as={Link} to='/logout' className="nav-link text-black dark-focus navbar-link" aria-current="page">Salir</Nav.Link>
                   </li>

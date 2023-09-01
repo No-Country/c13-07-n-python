@@ -1,0 +1,24 @@
+.contenedorhome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bloquebuscador input {
+    font-size: 30px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 55px;
+}
+
+.barradebusqueda{
+    width: 100%;
+}
+
+.imagenportada {
+    width: 100%;
+    height: auto;
+}
+
+

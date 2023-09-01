@@ -14,9 +14,11 @@ import ChangePass from './containers/pages/ChangePass'
 import ForgotPass from './containers/pages/ForgotPass'
 /*        Authenticated          */
 import Logout from './containers/pages/Logout'
-// import MyProfile from './containers/pages/MyProfile'
+import MyProfile from './containers/pages/MyProfile'
+import MyCart from './containers/pages/MyCart'
 /*        Customers          */
 import NavBarMenuCustomer from './layouts/NavBarMenuCustomer'
+import HomeCustomer from './containers/pages/HomeCustomer'
 /*        Staff         */
 import NavBarMenuStaff from './layouts/NavBarMenuStaff'
 import { Cookies } from "react-cookie"
@@ -82,8 +84,10 @@ function App() {
               <>
                 {/* Rutas para el rol de Customer */}
                 {userRole === 'Customer' && (
-                  <Route path="/home" element={<NavBarMenuCustomer />}>
-                    {/* <Route path="mi-perfil" element={<MyProfile />} /> */}
+                  <Route path="/" element={<NavBarMenuCustomer />}>
+                    { <Route path="/" element={<HomeCustomer />} /> }
+                    { <Route path="mi-perfil" element={<MyProfile />} /> }
+                    { <Route path="mi-carrito" element={<MyCart />} /> }
                     {/* <Route path="*" element={<Error404 />} /> */}
                   </Route>
                 )}
@@ -101,7 +105,7 @@ function App() {
               </>
             ) : (
               // Redireccionar a /login si no está autenticado
-              <Route path="*" element={<Navigate to="/login" />} />
+              <Route path="/" element={<Navigate to="/login" />} />
               )}
       </Routes>
 

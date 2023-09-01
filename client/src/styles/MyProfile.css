@@ -1,0 +1,14 @@
+.contenedorperfil {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.informacionusuario{
+    width: 100%;
+}
+
+.imagenusuario img {
+    width: 50%;
+}
