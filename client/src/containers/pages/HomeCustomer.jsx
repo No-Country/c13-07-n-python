@@ -9,7 +9,7 @@ export default function HomeCustomer() {
     };
 
     const handleSearchSubmit = (event) => {
-        event.preventDefault();  //para que no se refresque la pagina
+        event.preventDefault();
         console.log('Realizar búsqueda:', searchQuery);
     };
 
