@@ -19,4 +19,9 @@ urlpatterns = [
     path('verify-user/<int:id>/<str:token>/', views.VerifyAccountView.as_view()),
     path('password-reset/', views.PasswordResetView.as_view()),
     path('password-reset/confirm/<int:id>/<str:token>/', views.PasswordResetValidateView.as_view(), name='password-reset-confirm'),
+
+
+
+    #----------------------PAYMENT----------------
+    path('get-user-payment/<int:id>/', views.GetPaymentView.as_view(), name='payments')
 ]

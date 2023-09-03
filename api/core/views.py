@@ -7,11 +7,12 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.authentication import JWTAuthentication
+from core.serializers import PaymentSerializer
 from core.serializers import UserSerializer, CustomTokenObtainPairSerializer
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
 from django.contrib.auth.tokens import default_token_generator
-from .models import User
+from .models import Payment, User
 from password_validator import PasswordValidator
 from django.core.exceptions import ObjectDoesNotExist
 import random
@@ -361,3 +362,14 @@ class PasswordResetValidateView(APIView):
         serializer.save()
 
         return Response({'message': 'Contraseña actualizada correctamente'})
+    
+
+class GetPaymentView(APIView):
+    def get(self, request,  id):
+        user = User.objects.get(id=id)
+        payments = user.payment_set.all()
+        payments_serializer = PaymentSerializer(payments, many=True)
+        return Response(payments_serializer.data)
+    
+
+    

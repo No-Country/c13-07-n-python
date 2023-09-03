@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from .models import User
+from .models import Payment, User
 
 class UserSerializer(serializers.ModelSerializer):
 
@@ -21,3 +21,13 @@ class UserSerializer(serializers.ModelSerializer):
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     pass
+
+class PaymentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Payment
+        fields = '__all__'
+
+    def create(self, data):
+        payment = Payment(**data)
+        payment.save()
+        return payment
