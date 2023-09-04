@@ -16,12 +16,15 @@ urlpatterns = [
     path('register-user/', views.RegisterUser.as_view(), name='register-student'),
     path('update-user/', views.UpdateUserView.as_view(), name='update-user'),
     path('send-email/', views.SendEmailView.as_view()),
-    path('verify-user/<int:id>/<str:token>/', views.VerifyAccountView.as_view()),
+    path('verify-user/<int:id>/<str:token>/',
+         views.VerifyAccountView.as_view()),
     path('password-reset/', views.PasswordResetView.as_view()),
-    path('password-reset/confirm/<int:id>/<str:token>/', views.PasswordResetValidateView.as_view(), name='password-reset-confirm'),
+    path('password-reset/confirm/<int:id>/<str:token>/',
+         views.PasswordResetValidateView.as_view(), name='password-reset-confirm'),
 
 
 
-    #----------------------PAYMENT----------------
-    path('get-user-payment/<int:id>/', views.GetPaymentView.as_view(), name='payments')
+    # ----------------------PAYMENT----------------
+    path('get-user-payment/<int:id>/',
+         views.GetPaymentView.as_view(), name='payments')
 ]
