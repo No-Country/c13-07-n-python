@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Alicia",
+    "last_name": "Huff",
+    "birthday": "1977-02-08",
+    "email": "bdelgado@example.net",
+    "password": "+8YGr^(q!Y"
+  },
+  {
+    "name": "John",
+    "last_name": "Reed",
+    "birthday": "1998-10-11",
+    "email": "melendezmichael@example.net",
+    "password": "x&8X$POzY2"
+  },
+  {
+    "name": "Samuel",
+    "last_name": "Allen",
+    "birthday": "1970-03-15",
+    "email": "jamesmorgan@example.net",
+    "password": "qCVfJfly^7"
+  },
+  {
+    "name": "Stacey",
+    "last_name": "Hendrix",
+    "birthday": "1983-03-13",
+    "email": "jason41@example.org",
+    "password": "(6EqXm4n_S"
+  },
+  {
+    "name": "Eileen",
+    "last_name": "Griffin",
+    "birthday": "1977-02-15",
+    "email": "adamsjeremy@example.com",
+    "password": "H5JaMasQ#("
+  }
+]
