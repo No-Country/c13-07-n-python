@@ -1,32 +1,37 @@
 [
   {
-    "name": "Thomas",
-    "lastname": "Harris",
-    "birthday": "1985-07-11",
-    "email": "baileysteven@example.net"
+    "name": "Alicia",
+    "last_name": "Huff",
+    "birthday": "1977-02-08",
+    "email": "bdelgado@example.net",
+    "password": "+8YGr^(q!Y"
   },
   {
-    "name": "Evan",
-    "lastname": "Harris",
-    "birthday": "1958-09-02",
-    "email": "zromero@example.org"
+    "name": "John",
+    "last_name": "Reed",
+    "birthday": "1998-10-11",
+    "email": "melendezmichael@example.net",
+    "password": "x&8X$POzY2"
   },
   {
-    "name": "Michael",
-    "lastname": "Bell",
-    "birthday": "1908-05-03",
-    "email": "parker50@example.com"
+    "name": "Samuel",
+    "last_name": "Allen",
+    "birthday": "1970-03-15",
+    "email": "jamesmorgan@example.net",
+    "password": "qCVfJfly^7"
   },
   {
-    "name": "Nancy",
-    "lastname": "Hoover",
-    "birthday": "1952-07-22",
-    "email": "ewashington@example.com"
+    "name": "Stacey",
+    "last_name": "Hendrix",
+    "birthday": "1983-03-13",
+    "email": "jason41@example.org",
+    "password": "(6EqXm4n_S"
   },
   {
-    "name": "Michael",
-    "lastname": "Jones",
-    "birthday": "1999-04-07",
-    "email": "mikaylalee@example.net"
+    "name": "Eileen",
+    "last_name": "Griffin",
+    "birthday": "1977-02-15",
+    "email": "adamsjeremy@example.com",
+    "password": "H5JaMasQ#("
   }
 ]

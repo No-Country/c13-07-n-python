@@ -1,11 +1,11 @@
 from faker import Faker
-from core.models import User
+# from core.models import User
 
 
 fake = Faker()
-u = User.objects.get(id=1)
+# u = User.objects.get(id=1)
 
-#GENERAR DATOS FAKE CC
+# GENERAR DATOS FAKE CC
 
 payment_data = []
 for i in range(10):
@@ -18,23 +18,24 @@ for i in range(10):
     payment_data.append(payment_record)
 
 with open('payment.json', 'w') as fp:
-    fp.writelines(payment_data)
+    fp.writelines(payment_data.__str__())
 
 
-#GENERAR DATOS DE USUARIO
-user = User
+# GENERAR DATOS DE USUARIO
+# user = User
 
-user_data = []
+# user_data = []
 
-for i in range(5):
-    user_record = {
-        'name': fake.first_name(),
-        'lastname': fake.last_name(),
-        'birthday': fake.date_of_birth(minimum_age=18),
-        'email': fake.email()
-    }
+# # for i in range(5):
+# #     user_record = {
+# #         'name': fake.first_name(),
+# #         'last_name': fake.last_name(),
+# #         'birthday': fake.date_of_birth(minimum_age=18).isoformat(),
+# #         'email': fake.email(),
+# #         'password': fake.password()
+# #     }
 
-    user_data.append(user_record)
+# #     user_data.append(user_record)
 
-with open('user.json', 'w') as fp:
-    fp.writelines(user_data.__str__())
+# with open('user.json', 'w') as fp:
+#     fp.writelines(user_data.__str__())
