@@ -86,7 +86,7 @@ function App() {
             {userRole === 'Customer' && (
               <Route path="/" element={<NavBarMenuCustomer />}>
                 {<Route path="/" element={<HomeCustomer />} />}
-                {<Route path="/mi-perfil" element={<MyProfile />} />}
+                {<Route path="/ver-perfil" element={<MyProfile />} />}
                 {<Route path="mi-carrito" element={<MyCart />} />}
                 {/* <Route path="*" element={<Error404 />} /> */}
               </Route>

@@ -28,7 +28,7 @@ const NavBarMenuCustomer = () => {
                     <Nav.Link as={Link} to='/categorias' className="nav-link text-black navbar-link" href="#">Categorías</Nav.Link>
                   </li>
                   { <li className="nav-item">
-                    <Nav.Link as={Link} to='/mi-perfil' className="nav-link text-black navbar-link" href="#">Mi perfil</Nav.Link>
+                    <Nav.Link as={Link} to='/ver-perfil' className="nav-link text-black navbar-link" href="#">Ver Perfil</Nav.Link>
                   </li> }
                   <li className="nav-item">
                     <Nav.Link as={Link} to='/logout' className="nav-link text-black dark-focus navbar-link" aria-current="page">Salir</Nav.Link>
