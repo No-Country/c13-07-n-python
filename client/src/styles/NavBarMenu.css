@@ -1,9 +1,9 @@
-h1 {
+.titulo-logo {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  text-shadow: none;
+  font-weight: 900;
   margin-right: auto;
   padding-left: 15px;
+  font-size: 25px;
 }
 
 .navbar-expand-lg .navbar-collapse {
@@ -15,25 +15,26 @@ h1 {
   background-color: var(--white);
 }
 
-.navbar-link{
+.navbar-link {
   display: flex;
   font-size: 20px;
   margin-right: 50px;
 }
 
-.nav-link{
+.nav-link {
   justify-content: center;
 }
 
 .container-fluid {
   justify-content: end !important;
+  padding-bottom: 30px;
 }
 
 .dark-focus {
   font-weight: 700;
 }
 
-.navbar-link:hover{
+.navbar-link:hover {
   color: var(--dark);
   opacity: 0.7;
   border-radius: 15px;
@@ -49,13 +50,14 @@ button:paused {
   box-shadow: none !important;
 }
 
-.boton{
+.boton {
   margin-top: 5px;
   margin-left: 10px;
 }
 
 @media (max-width: 992px) {
   .navbar-nav .nav-link {
-    margin-right: auto; /* Ajusta el valor según tu preferencia */
+    margin-right: auto;
+    /* Ajusta el valor según tu preferencia */
   }
 }

@@ -8,9 +8,6 @@ import axios from 'axios';
 
 //            estructura y diseño
 import '../../styles/MyProfile.css'
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import { FaEnvelope, FaMapMarkerAlt, FaBirthdayCake, FaPhone, FaLock } from 'react-icons/fa';
 
 const MyProfile = () => {
 
@@ -59,9 +56,7 @@ const MyProfile = () => {
     /* Variable de estado para permitir la escritura en los campos a editar */
     const [editing, setEditing] = useState(false);
 
-    const updateUser = async (e) => {
-        e.preventDefault();
-    }
+
 
     ///////////////////////////////////////////////////////////////////////
     //////            MOSTRAR LA INFORMACION DEL USUARIO            ///////
@@ -70,83 +65,116 @@ const MyProfile = () => {
     /* Desarrollo de la estructura y diseño del componente.
     Asignacion de objetos y propiedades*/
     return (
-        <div className="contenedorperfil">
-            <div className='bloqueperfil'>
-                <img className='imagenperfil' src="data:image/jpeg;base64,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" alt="Imagen" />
+        <div className='contenedor-perfil-0'>
+            <div className='contenedor-perfil-1'>
+                <img className='imagen-perfil' src='https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg' alt='imagen-perfil-usuario' />
+                <label className='nombre-perfil'>{userData.name} {userData.last_name}</label>
             </div>
-            <Form.Label className='tituloperfil'>{userData.name} {userData.last_name}</Form.Label>
-            <div className='botonespefil'>
-                <Button className='botoncarrito'>Carrito</Button>
-                <Button className='botonfavoritos'>Favoritos</Button>
+            <div className='contenedor-perfil-2'>
+                <button className='boton-perfil-0'>Carrito</button>
+                <button className='boton-perfil-0'>Favoritos</button>
             </div>
-            <div className="informacionperfil">
-                <Form onSubmit={updateUser}>
-                    <Form.Group className='grupodatoperfil'>
-                        <FaEnvelope className='icono' />
-                        <Form.Label>Email:</Form.Label>
-                        <Form.Control
-                            className='simple'
-                            type="text"
+            <div className='contenedor-perfil-3'>
+                <div className='contenedor-entrada-generica'>
+                    <div className='titulo-entrada-generica'>
+                        Email:
+                    </div>
+                    <div className='entrada-generica'>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                            </svg>
+                        </span>
+                        <input
                             placeholder={userData.email}
                             disabled={!editing}
                         />
-                    </Form.Group>
-                    <Form.Group className='grupodatoperfil'>
-                        <FaMapMarkerAlt className='icono' />
-                        <Form.Label>Dirección:</Form.Label>
-                        <Form.Control
-                            className='simple'
-                            type="text"
-                            placeholder="tarea pendiente"
+                    </div>
+                </div>
+                <div className='contenedor-entrada-generica'>
+                    <div className='titulo-entrada-generica'>
+                        Direccion:
+                    </div>
+                    <div className='entrada-generica'>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                            </svg>
+                        </span>
+                        <input
                             disabled={!editing}
                         />
-                    </Form.Group>
-                    <Form.Group className='grupodatoperfil'>
-                        <FaMapMarkerAlt className='icono' />
-                        <Form.Label>Codigo Postal:</Form.Label>
-                        <Form.Control
-                            className='simple'
-                            type="text"
-                            placeholder="tarea pendiente"
+                    </div>
+                </div>
+                <div className='contenedor-entrada-generica'>
+                    <div className='titulo-entrada-generica'>
+                        Codigo Postal:
+                    </div>
+                    <div className='entrada-generica'>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+                            </svg>
+                        </span>
+                        <input
                             disabled={!editing}
                         />
-                    </Form.Group>
-                    <Form.Group className='grupodatoperfil'>
-                        <FaBirthdayCake className='icono' />
-                        <Form.Label>Fecha de nacimiento:</Form.Label>
-                        <Form.Control
-                            className='simple'
-                            type="text"
+                    </div>
+                </div>
+                <div className='contenedor-entrada-generica'>
+                    <div className='titulo-entrada-generica'>
+                        Fecha de nacimiento:
+                    </div>
+                    <div className='entrada-generica'>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date-fill" viewBox="0 0 16 16">
+                                <path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zm5.402 9.746c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
+                                <path d="M16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-6.664-1.21c-1.11 0-1.656-.767-1.703-1.407h.683c.043.37.387.82 1.051.82.844 0 1.301-.848 1.305-2.164h-.027c-.153.414-.637.79-1.383.79-.852 0-1.676-.61-1.676-1.77 0-1.137.871-1.809 1.797-1.809 1.172 0 1.953.734 1.953 2.668 0 1.805-.742 2.871-2 2.871zm-2.89-5.435v5.332H5.77V8.079h-.012c-.29.156-.883.52-1.258.777V8.16a12.6 12.6 0 0 1 1.313-.805h.632z" />
+                            </svg>
+                        </span>
+                        <input
                             placeholder={userData.birthday}
                             disabled={!editing}
                         />
-                    </Form.Group>
-                    <Form.Group className='grupodatoperfil'>
-                        <FaPhone className='icono' />
-                        <Form.Label>Telefono:</Form.Label>
-                        <Form.Control
-                            className='simple'
-                            type="text"
-                            placeholder="tarea pendiente"
+                    </div>
+                </div>
+                <div className='contenedor-entrada-generica'>
+                    <div className='titulo-entrada-generica'>
+                        Telefono:
+                    </div>
+                    <div className='entrada-generica'>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg>
+                        </span>
+                        <input
                             disabled={!editing}
                         />
-                    </Form.Group>
-                    <Form.Group className='grupodatoperfil'>
-                        <FaLock className='icono' />
-                        <Form.Label>Contraseña:</Form.Label>
-                        <Form.Control
-                            className='simple'
-                            type="text"
-                            placeholder="tarea pendiente"
+                    </div>
+                </div>
+                <div className='contenedor-entrada-generica'>
+                    <div className='titulo-entrada-generica'>
+                        Contraseña:
+                    </div>
+                    <div className='entrada-generica'>
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                            </svg>
+                        </span>
+                        <input
                             disabled={!editing}
                         />
-                    </Form.Group>
-
-                </Form>
+                    </div>
+                </div>
+            </div>
+            <div className='contenedor-perfil-4'>
                 {editing ? (
-                    <Button className='botoneditar' onClick={() => setEditing(false)}>Guardar</Button>
+                    <button className='boton-perfil-1' onClick={() => setEditing(false)}>Guardar</button>
                 ) : (
-                    <Button className='botoneditar' onClick={() => setEditing(true)}>Editar</Button>
+                    <button className='boton-perfil-1' onClick={() => setEditing(true)}>Editar</button>
                 )}
             </div>
         </div>
@@ -154,5 +182,4 @@ const MyProfile = () => {
 };
 
 export default MyProfile;
-
 
