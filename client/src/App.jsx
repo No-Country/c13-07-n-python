@@ -19,6 +19,7 @@ import MyCart from './containers/pages/MyCart'
 /*        Customers          */
 import NavBarMenuCustomer from './layouts/NavBarMenuCustomer'
 import HomeCustomer from './containers/pages/HomeCustomer'
+import Categorias from './containers/pages/Categorias'
 /*        Staff         */
 import NavBarMenuStaff from './layouts/NavBarMenuStaff'
 import { Cookies } from "react-cookie"
@@ -79,7 +80,6 @@ function App() {
         <Route path="/verificar-cuenta/:id/:token" element={<VerifyUser />} />
         <Route path="/olvide-clave/" element={<ForgotPass />} />
         <Route path="/reestablecer-clave/:id/:token" element={<ChangePass />} />
-        {/* Rutas protegidas */}
         {isAuthenticated() ? (
           <>
             {/* Rutas para el rol de Customer */}
@@ -88,6 +88,7 @@ function App() {
                 {<Route path="/" element={<HomeCustomer />} />}
                 {<Route path="/ver-perfil" element={<MyProfile />} />}
                 {<Route path="mi-carrito" element={<MyCart />} />}
+                {<Route path="/categorias" element={<Categorias />} />}
                 {/* <Route path="*" element={<Error404 />} /> */}
               </Route>
             )}

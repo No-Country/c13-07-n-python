@@ -1,5 +1,5 @@
 //            Global
-import React, { useState, useEffect } from 'react';
+import { React, useState, useEffect } from 'react';
 
 //            servicios
 import { useAuthStore } from '../../useAuthStore';
