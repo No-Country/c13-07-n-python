@@ -18,5 +18,11 @@
             "src": "/(.*)",
             "dest": "ecommerce/wsgi.py"
         }
-    ]
+    ],
+    "build": {
+        "env": {
+          "MYSQLCLIENT_CFLAGS": "-I/path/to/mysql/headers",
+          "MYSQLCLIENT_LDFLAGS": "-L/path/to/mysql/libs"
+        }
+      }
 }
