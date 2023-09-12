@@ -1,33 +1,33 @@
-import './styles/index.css'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { Toaster } from 'react-hot-toast'
-/*        Global          */
-// import Footer from './layouts/Footer'
-import Login from './containers/pages/Login'
-import RegisterUser from './containers/pages/RegisterUser'
-import NavBarMenuGuest from './layouts/NavBarMenuGuest'
-/*        Registered          */
-import VerifyUser from './containers/pages/VerifyUser'
-import ChangePass from './containers/pages/ChangePass'
-import ForgotPass from './containers/pages/ForgotPass'
-/*        Authenticated          */
-import Logout from './containers/pages/Logout'
-import MyProfile from './containers/pages/MyProfile'
-/*        Customers          */
-import NavBarMenuCustomer from './layouts/NavBarMenuCustomer'
-import HomeCustomer from './containers/pages/HomeCustomer'
-import Categorias from './containers/pages/Categorias'
-/*        Staff         */
-import { Cookies } from "react-cookie"
-import jwt_decode from 'jwt-decode'
-import { useState, useEffect } from 'react'
-import { performApiRequest, getRol } from './api/users.api'
+import './styles/index.css';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { Cookies } from 'react-cookie';
+import jwt_decode from 'jwt-decode';
+import { useState, useEffect, useCallback } from 'react';
+import { performApiRequest, getRol } from './api/users.api';
 
-function App() {
+import Login from './containers/pages/Login';
+import RegisterUser from './containers/pages/RegisterUser';
+import NavBarMenuGuest from './layouts/NavBarMenuGuest';
+import VerifyUser from './containers/pages/VerifyUser';
+import ChangePass from './containers/pages/ChangePass';
+import ForgotPass from './containers/pages/ForgotPass';
+import Logout from './containers/pages/Logout';
+import MyProfile from './containers/pages/MyProfile';
+import NavBarMenuCustomer from './layouts/NavBarMenuCustomer';
+import HomeCustomer from './containers/pages/HomeCustomer';
+import Categorias from './containers/pages/Categorias';
+
+
+export default function App() {
   const cookies = new Cookies();
   const accessToken = cookies.get('access');
   const [userRole, setUserRole] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const isAuthenticated = useCallback(() => {
+    return accessToken != null;
+  }, [accessToken]);
 
   useEffect(() => {
     if (accessToken) {
@@ -37,19 +37,16 @@ function App() {
       const fetchUserRole = async () => {
         try {
           const response = await performApiRequest(() => getRol(userId));
-          const { message, error } = response;
+          const { role, error } = response;
 
-          if (message) {
-            setUserRole(message);
-
+          if (role) {
+            setUserRole(role);
           } else {
-            // Manejar el error
             console.error(error);
           }
         } catch (error) {
-          // Manejar el error
           console.error(error);
-          setIsLoggedIn(false)
+          setIsLoggedIn(false);
         }
       };
 
@@ -57,52 +54,33 @@ function App() {
     }
   }, [accessToken]);
 
-  // Función auxiliar para comprobar si el usuario está autenticado
-  const isAuthenticated = () => {
-    return accessToken != null;
-  };
-
   useEffect(() => {
     setIsLoggedIn(isAuthenticated());
-  }, [accessToken]);
+  }, [accessToken, isAuthenticated]);
 
   return (
     <BrowserRouter>
-
       {isLoggedIn ? <NavBarMenuCustomer /> : <NavBarMenuGuest isLoggedIn={isLoggedIn} />}
       <Routes>
-        <Route path='/login' element={isLoggedIn ? <Navigate to="/home" /> : <Login />} />
+        <Route path="/login" element={isLoggedIn ? <Navigate to="/home" /> : <Login />} />
         <Route path="/registrarme/" element={<RegisterUser />} />
         <Route path="/verificar-cuenta/:id/:token" element={<VerifyUser />} />
         <Route path="/olvide-clave/" element={<ForgotPass />} />
         <Route path="/reestablecer-clave/:id/:token" element={<ChangePass />} />
+
         <Route path="/" element={<HomeCustomer />} />
         <Route path="/categorias" element={<Categorias />} />
-        <Route path="/ver-perfil" element={<MyProfile />} />
 
-        {/* Rutas protegidas*/}
-        {isAuthenticated() ? (
+        {isAuthenticated() && (
           <>
-            {userRole === 'Customer' && (
-              <Route>
-                {<Route path="/ver-perfil" element={<MyProfile />} />}
-                {<Route path="/categorias" element={<Categorias />} />}
-              </Route>
-            )}
-
-            {/* <Route path="/editar-perfil" element={<UpdateUser />} /> */}
+            {userRole === 'Customer' && <Route path="/ver-perfil" element={<MyProfile />} />}
             <Route path="/logout" element={<Logout />} />
           </>
-        ) : (
-          // Redireccionar a /login si no está autenticado
-          <Route path="/" element={<Navigate to="/login" />} />
         )}
+
+        {!isAuthenticated() && <Route path="/" element={<Navigate to="/login" />} />}
       </Routes>
-
       <Toaster />
-      {/* <Footer></Footer> */}
     </BrowserRouter>
-  )
+  );
 }
-
-export default App;
