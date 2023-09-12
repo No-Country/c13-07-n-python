@@ -1,0 +1,237 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Gatos callejeros Camiseta",
+            "category": "Hombres",
+            "price": 20.26,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.398734608.2498/ssrco,classic_tee,mens,fafafa:ca443f4786,front_alt,square_product,600x600.u12.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Fantasma de desaprobación",
+            "category": "Hombres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,mens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 3,
+            "name": "Mantente positivo Camiseta",
+            "category": "Hombres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.2404102447.9073/ssrco,classic_tee,mens,353d77:4d8b4ffd91,front_alt,square_product,600x600.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Aférrate. Déjame pensarlo",
+            "category": "Hombres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.1654473456.5665/ssrco,classic_tee,mens,101010:01c5ca27c6,front_alt,square_product,600x600.u3.jpg"
+        },
+        {
+            "id": 5,
+            "name": "Muchas tierras bajo un sol",
+            "category": "Hombres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.231419152.7419/ssrco,classic_tee,mens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 6,
+            "name": "Cinabrio WOF Camiseta clásica",
+            "category": "Hombres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.5229361600.0062/ssrco,classic_tee,mens,403c32:92341a482f,front_alt,square_product,600x600.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Visita Arrakis - Vintage",
+            "category": "Hombres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.852690703.9380/ssrco,classic_tee,mens,322e3f:696a94a5d4,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 8,
+            "name": "El período de bodacious",
+            "category": "Hombres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.1115294621.5784/ssrco,slim_fit_t_shirt,mens,e0e1dd:064437a66d,front,square_product,600x600.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Una cura para la gente estúpida",
+            "category": "Hombres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.725041718.9198/ssrco,classic_tee,mens,e5d6c5:f62bbf65ee,front_alt,square_product,600x600.u7.jpg"
+        },
+        {
+            "id": 10,
+            "name": "No hables con extraños",
+            "category": "Hombres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.725050801.9456/ssrco,classic_tee,mens,026541:3d4e1a7dce,front_alt,square_product,600x600.u5.jpg"
+        },
+        {
+            "id": 11,
+            "name": "Aférrate. Déjame pensarlo ",
+            "category": "Mujeres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.1654473456.5665/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u3.jpg"
+        },
+        {
+            "id": 12,
+            "name": "Chicle Blusa sin mangas",
+            "category": "Mujeres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.5229203566.5316/ctkr,x1862,front,black-c,324,409,600,600-bg,f8f8f8.jpg"
+        },
+        {
+            "id": 13,
+            "name": "Juego sucio Camiseta clásica",
+            "category": "Mujeres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.93386443.0862/ssrco,classic_tee,womens,fafafa:ca443f4786,front_alt,square_product,600x600.u1.jpg"
+        },
+        {
+            "id": 14,
+            "name": "EDDA Camiseta esencial",
+            "category": "Mujeres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.95608680.6104/ssrco,slim_fit_t_shirt,womens,101010:01c5ca27c6,front,square_product,600x600.jpg"
+        },
+        {
+            "id": 15,
+            "name": "Oscilación de la luna Camiseta",
+            "category": "Mujeres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.1000004216.3007/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.jpg"
+        },
+        
+        {
+            "id": 16,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Mujeres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 17,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Mujeres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 18,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Mujeres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 19,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Mujeres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 20,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Mujeres",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 21,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Niños",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 22,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Niños",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 23,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Niños",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 24,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Niños",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 25,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Niños",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 26,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Niños",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 27,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Niños",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 28,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Niños",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        },
+        {
+            "id": 29,
+            "name": "Mantente positivo Camiseta clásica",
+            "category": "Niños",
+            "price": 25.2,
+            "stock": 5,
+            "img": "https://ih1.redbubble.net/image.4953435766.4852/ssrco,classic_tee,womens,101010:01c5ca27c6,front_alt,square_product,600x600.u2.jpg"
+        }
+    ]
+}

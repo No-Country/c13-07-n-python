@@ -1,9 +1,7 @@
 import './styles/index.css'
-import { useAuthStore } from './useAuthStore'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 /*        Global          */
-// import Error404 from '../src/containers/errors/Error404'
 // import Footer from './layouts/Footer'
 import Login from './containers/pages/Login'
 import RegisterUser from './containers/pages/RegisterUser'
@@ -15,13 +13,11 @@ import ForgotPass from './containers/pages/ForgotPass'
 /*        Authenticated          */
 import Logout from './containers/pages/Logout'
 import MyProfile from './containers/pages/MyProfile'
-import MyCart from './containers/pages/MyCart'
 /*        Customers          */
 import NavBarMenuCustomer from './layouts/NavBarMenuCustomer'
 import HomeCustomer from './containers/pages/HomeCustomer'
 import Categorias from './containers/pages/Categorias'
 /*        Staff         */
-import NavBarMenuStaff from './layouts/NavBarMenuStaff'
 import { Cookies } from "react-cookie"
 import jwt_decode from 'jwt-decode'
 import { useState, useEffect } from 'react'
@@ -32,7 +28,6 @@ function App() {
   const accessToken = cookies.get('access');
   const [userRole, setUserRole] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const authStore = useAuthStore();
 
   useEffect(() => {
     if (accessToken) {
@@ -73,34 +68,28 @@ function App() {
 
   return (
     <BrowserRouter>
-      {isLoggedIn ? null : <NavBarMenuGuest isLoggedIn={isLoggedIn} />}
+
+      {isLoggedIn ? <NavBarMenuCustomer /> : <NavBarMenuGuest isLoggedIn={isLoggedIn} />}
       <Routes>
         <Route path='/login' element={isLoggedIn ? <Navigate to="/home" /> : <Login />} />
         <Route path="/registrarme/" element={<RegisterUser />} />
         <Route path="/verificar-cuenta/:id/:token" element={<VerifyUser />} />
         <Route path="/olvide-clave/" element={<ForgotPass />} />
         <Route path="/reestablecer-clave/:id/:token" element={<ChangePass />} />
+        <Route path="/" element={<HomeCustomer />} />
+        <Route path="/categorias" element={<Categorias />} />
+        <Route path="/ver-perfil" element={<MyProfile />} />
+
+        {/* Rutas protegidas*/}
         {isAuthenticated() ? (
           <>
-            {/* Rutas para el rol de Customer */}
             {userRole === 'Customer' && (
-              <Route path="/" element={<NavBarMenuCustomer />}>
-                {<Route path="/" element={<HomeCustomer />} />}
+              <Route>
                 {<Route path="/ver-perfil" element={<MyProfile />} />}
-                {<Route path="mi-carrito" element={<MyCart />} />}
                 {<Route path="/categorias" element={<Categorias />} />}
-                {/* <Route path="*" element={<Error404 />} /> */}
               </Route>
             )}
 
-            {/* Rutas para el rol de Staff */}
-            {/* STAFF */}
-            {userRole === 'Staff' && (
-              <Route path="/" element={<NavBarMenuStaff />}>
-                {/* <Route path="mi-perfil" element={<MyProfile />} /> */}
-                {/* <Route path="*" element={<Error404 />} /> */}
-              </Route>
-            )}
             {/* <Route path="/editar-perfil" element={<UpdateUser />} /> */}
             <Route path="/logout" element={<Logout />} />
           </>
