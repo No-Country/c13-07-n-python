@@ -77,7 +77,6 @@ export default function App() {
             <Route path="/logout" element={<Logout />} />
           </>
         )}
-
         {!isAuthenticated() && <Route path="/" element={<Navigate to="/login" />} />}
       </Routes>
       <Toaster />
