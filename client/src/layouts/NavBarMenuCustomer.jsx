@@ -1,14 +1,15 @@
 import { Link, Outlet } from "react-router-dom"
 import Nav from 'react-bootstrap/Nav';
-import logo from '../assets/logo1.png';
+//import logo from '../assets/logo1.png';
 import '../styles/NavBarMenu.css'
 
-const NavBarMenuGuess = () => {  
+const NavBarMenuCustomer = () => {
   return (
     <div>
       <div className="navbar navbar-expand-lg navBg">
             <div className="container-fluid">
-            <h1>OTOÑO</h1>
+            <h2 className="titulo-logo">OTOÑO</h2>
+              <input className="buscador-home" type="text" />
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -27,6 +28,9 @@ const NavBarMenuGuess = () => {
                   <li className="nav-item">
                     <Nav.Link as={Link} to='/categorias' className="nav-link text-black navbar-link" href="#">Categorías</Nav.Link>
                   </li>
+                  { <li className="nav-item">
+                    <Nav.Link as={Link} to='/ver-perfil' className="nav-link text-black navbar-link" href="#">Ver Perfil</Nav.Link>
+                  </li> }
                   <li className="nav-item">
                     <Nav.Link as={Link} to='/logout' className="nav-link text-black dark-focus navbar-link" aria-current="page">Salir</Nav.Link>
                   </li>
@@ -45,4 +49,4 @@ const NavBarMenuGuess = () => {
   )
 }
 
-export default NavBarMenuGuess
+export default NavBarMenuCustomer

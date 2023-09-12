@@ -64,13 +64,8 @@ const client = axios.create(
 
         authStore.login(access, refreshToken);
         authStore.setUserRole(rol);
-        
-        // Redirigir según el rol del usuario
-        if (rol === 'Staff') {
-          navigate('/home-staff')
-        } else {
-          navigate('/home-customer')
-        }
+
+        navigate('/', {replace: true})
   
       } catch (error) {
         if (error.response) {

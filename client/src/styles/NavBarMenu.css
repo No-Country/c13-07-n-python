@@ -1,70 +1,118 @@
-h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-style: italic;
-  text-shadow: none;
-  margin: 1px auto;
-}
-.logo img {
-  padding: 10px;
-  width: 150px;
-}
-
-.navbar-expand-lg .navbar-collapse {
-  flex-basis: none;
-  justify-content: end;
-}
-
-.section-navBg {
-  margin-top: 40px;
-  margin-bottom: 60px;
-}
-
-.navBg {
-  background-color: var(--white);
-}
-
-.navbar-link{
+.contenedor-menu {
   display: flex;
-  font-size: 20px;
-  margin-right: 50px;
-}
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  margin: 0;
+  position: relative;
 
-.nav-link{
-  justify-content: center;
-}
+  & .titulo-menu {
+    display: flex;
+    padding: 0;
+    margin: 0 30px 0 65px;
 
-.container-fluid {
-  justify-content: end !important;
-}
-
-.dark-focus {
-  font-weight: 700;
-}
-
-.navbar-link:hover{
-  color: var(--dark);
-  opacity: 0.7;
-  border-radius: 15px;
-}
-
-button {
-  border-style: none !important;
-  box-shadow: none !important;
-}
-
-button:paused {
-  border-style: none !important;
-  box-shadow: none !important;
-}
-
-.boton{
-  margin-top: 5px;
-  margin-left: 10px;
-}
-
-@media (max-width: 992px) {
-  .navbar-nav .nav-link {
-    margin-right: auto; /* Ajusta el valor según tu preferencia */
+    & .enlace-lista {
+      text-decoration: none;
+      color: black;
+      font-size: 20px;
+      font-weight: 900;
+      font-style: italic;
+    }
   }
+
+  & .buscador-menu {
+    border: 0;
+    background-color: #f2f2f2;
+    width: 350px;
+    height: 30px;
+  }
+
+  & .lista-menu {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+
+    & .elemento-lista {
+      list-style: none;
+      margin: 0 20px;
+
+      & .enlace-lista {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+
+  & .boton-desplegable {
+    display: none;
+
+  }
+
+}
+
+@media (max-width: 750px) {
+  .contenedor-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin: 0;
+
+    & .titulo-menu {
+      display: flex;
+      padding: 0;
+      margin: 0 30px 0 65px;
+
+      & .enlace-lista {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        font-weight: 900;
+        font-style: italic;
+      }
+    }
+
+    & .buscador-menu {
+      border: 0;
+      background-color: #f2f2f2;
+      width: 350px;
+      height: 30px;
+    }
+
+    & .lista-menu.visible {
+      display: block;
+      position: absolute;
+      top: 50px;
+      right: 0px;
+      padding: 4% 5% 25% 0;
+      background-color: #ffff;
+      margin: 0;
+    }
+
+    & .lista-menu {
+      display: none;
+
+      & .elemento-lista {
+        list-style: none;
+        margin: 0 20px;
+      }
+    }
+
+    & .boton-desplegable {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      width: 30px;
+      height: 3%;
+      padding: 0;
+      margin: 0 30px 0 0;
+    }
+
+  }
+
 }

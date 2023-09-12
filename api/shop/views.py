@@ -1,6 +1,12 @@
 from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-# Create your views here.
+from core.models import User
+from .models import Product
+from shop.serializers import ProductSerializer
+
+
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .models import CartItem, Product
@@ -17,6 +23,5 @@ class ProductAPIView(APIView):
         products = Product.objects.all()
         products_serializer = ProductSerializer(products, many=True)
         return Response(products_serializer.data)
-
-
+        return Response(products_serializer.data)
 

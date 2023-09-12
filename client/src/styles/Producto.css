@@ -1,0 +1,23 @@
+.contenedor-producto {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 0;
+    padding: 0 0 0 14px;
+    
+    & img {
+        width: 180px;
+        height: 190px;
+        border-radius: 5px;
+    }
+
+    & h2{
+        font-size: 15px;
+        width: 180px;
+        font-weight: 600;
+    }
+
+    & h3 {
+        font-size: 16px;
+        font-weight:900;
+    }
+}

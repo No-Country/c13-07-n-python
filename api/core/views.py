@@ -15,6 +15,7 @@ from .models import User
 from password_validator import PasswordValidator
 from django.core.exceptions import ObjectDoesNotExist
 import random
+from django.http import Http404
 
 def generate_verification_code():
     return random.randint(1000, 9999)
@@ -102,9 +103,7 @@ class GetUserView(generics.RetrieveAPIView):
             user_id = self.kwargs['id']  # asumiendo que 'id' es el nombre del parámetro en la URL
             user = group.user_set.get(pk=user_id)
             return user
-        except group.DoesNotExist:
-            raise Http404
-        except User.DoesNotExist:
+        except (Group.DoesNotExist, User.DoesNotExist):
             raise Http404
 
     def retrieve(self, request, *args, **kwargs):
