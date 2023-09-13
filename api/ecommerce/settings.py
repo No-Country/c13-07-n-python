@@ -167,7 +167,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Permitir que el puerto donde corra react se conecte
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173","https://de08-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app","https://c13-07-n-python-ecommerce.vercel.app"]
 
 CORS_ALLOW_CREDENTIALS = True
 
