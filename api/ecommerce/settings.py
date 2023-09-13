@@ -27,13 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-import os
-
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles_build", "static")
-MEDIA_URLS = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -174,7 +168,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Permitir que el puerto donde corra react se conecte
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173","https://5cdc-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app"]
 
 CORS_ALLOW_CREDENTIALS = True
 
