@@ -65,7 +65,7 @@ const client = axios.create(
         authStore.login(access, refreshToken);
         authStore.setUserRole(rol);
 
-        navigate('/', {replace: true})
+        navigate('/home', {replace: true})
   
       } catch (error) {
         if (error.response) {

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, Outlet } from "react-router-dom";
 import List_line from '../assets/Icons';
 
-export default function NavBarMenuGuest() {
+const NavBarMenuGuest = () => {
   const [listaVisible, setListaVisible] = useState(false);
   const toggleLista = () => {
     setListaVisible(!listaVisible);
@@ -25,3 +25,5 @@ export default function NavBarMenuGuest() {
     </div>
   );
 }
+
+export default NavBarMenuGuest;
