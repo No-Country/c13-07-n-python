@@ -1,5 +1,4 @@
 import './styles/index.css'
-import { useAuthStore } from './useAuthStore'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 /*        Global          */
@@ -28,7 +27,6 @@ function App() {
   const accessToken = cookies.get('access');
   const [userRole, setUserRole] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const authStore = useAuthStore();
 
   useEffect(() => {
     if (accessToken) {
