@@ -27,7 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["http://de08-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app","de08-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app"]
 
 # Application definition
 
