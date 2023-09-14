@@ -32,7 +32,7 @@ const MyProfile = () => {
 
             /* El código realiza una solicitud HTTP GET a la URL.
              Está utilizando la biblioteca `axios` para enviar la solicitud. */
-            axios.get(`http://de08-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app/core/get-user/${userID}`)
+            axios.get(`https://de08-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app/core/get-user/${userID}`)
                 .then(response => {
                     setData(response.data);
                 })
