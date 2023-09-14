@@ -98,7 +98,7 @@ function App() {
       <Toaster />
       {/* <Footer></Footer> */}
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
