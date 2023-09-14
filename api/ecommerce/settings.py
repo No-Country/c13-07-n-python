@@ -27,7 +27,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["http://de08-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app","de08-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app"]
+ALLOWED_HOSTS = ["https://4f0a-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app/","4f0a-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app"]
 
 # Application definition
 
@@ -167,7 +167,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Permitir que el puerto donde corra react se conecte
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173","https://de08-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app","https://c13-07-n-python-ecommerce.vercel.app"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173","https://4f0a-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app","https://c13-07-n-python-ecommerce.vercel.app"]
 
 CORS_ALLOW_CREDENTIALS = True
 
