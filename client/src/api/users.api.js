@@ -1,15 +1,16 @@
 import { createAuthAxios } from "./authtoken.api"
 import axios from "axios"
+const direccionamineto = "https://de08-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app/core/"
 
-const ecommerceUsers = createAuthAxios('http://localhost:8000/core/')
+const ecommerceUsers = createAuthAxios(direccionamineto)
 
 const guessUser = axios.create({
-  baseURL: 'http://localhost:8000/core/',
+  baseURL: direccionamineto,
 });
 
 /*get usuarios*/
 export const getCustomer = (id) => {
-  return  ecommerceUsers.get(`/get-customer/${id}/`) }
+  return  ecommerceUsers.get(`/get-user/${id}/`) }
 
 export const getStaff = (id) => {
   return  ecommerceUsers.get(`/get-staff/${id}/`) }
