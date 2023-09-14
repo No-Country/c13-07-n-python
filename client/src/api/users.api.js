@@ -1,10 +1,10 @@
 import { createAuthAxios } from "./authtoken.api"
 import axios from "axios"
 
-const ecommerceUsers = createAuthAxios('https://nahuellupe.pythonanywhere.com/core/')
+const ecommerceUsers = createAuthAxios('http://localhost:8000/core/')
 
 const guessUser = axios.create({
-  baseURL: 'https://nahuellupe.pythonanywhere.com/core/',
+  baseURL: 'http://localhost:8000/core/',
 });
 
 /*get usuarios*/

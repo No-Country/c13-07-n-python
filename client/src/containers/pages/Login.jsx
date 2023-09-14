@@ -16,7 +16,7 @@ const cookies = new Cookies();
 
 const client = axios.create(
   {
-    baseURL: "https://nahuellupe.pythonanywhere.com"
+    baseURL: "http://127.0.0.1:8000"
   });
 
   const Login = () => {

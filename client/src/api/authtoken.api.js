@@ -2,7 +2,7 @@ import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Cookies } from 'react-cookie'
 
-const defaultBaseURL = 'https://nahuellupe.pythonanywhere.com'
+const defaultBaseURL = 'http://127.0.0.1:8000'
 
 export const axi = axios.create({
   baseURL: defaultBaseURL,
