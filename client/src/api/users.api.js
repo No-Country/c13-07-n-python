@@ -1,6 +1,6 @@
 import { createAuthAxios } from "./authtoken.api"
 import axios from "axios"
-const direccionamineto = "https://de08-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app/core/"
+const direccionamineto = "https://4f0a-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app/core"
 
 const ecommerceUsers = createAuthAxios(direccionamineto)
 
