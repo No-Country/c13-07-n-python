@@ -32,7 +32,7 @@ const MyProfile = () => {
 
             /* El código realiza una solicitud HTTP GET a la URL.
              Está utilizando la biblioteca `axios` para enviar la solicitud. */
-            axios.get(`http://127.0.0.1:8000/core/get-user/${userID}`)
+            axios.get(`https://nahuellupe.pythonanywhere.com/core/get-user/${userID}`)
                 .then(response => {
                     setData(response.data);
                 })
