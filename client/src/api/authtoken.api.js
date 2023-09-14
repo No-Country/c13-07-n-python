@@ -1,9 +1,8 @@
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 import { Cookies } from 'react-cookie'
-const direccionamineto = "https://4f0a-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app/"
 
-const defaultBaseURL = direccionamineto
+const defaultBaseURL = 'http://127.0.0.1:8000'
 
 export const axi = axios.create({
   baseURL: defaultBaseURL,

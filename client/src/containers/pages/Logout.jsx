@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useAuthStore } from '../../useAuthStore'
 import { useNavigate } from 'react-router-dom';
 
-const client = createAuthAxios("http://de08-2800-810-42a-22b1-4024-b2d2-e19b-bf69.ngrok-free.app/")
+const client = createAuthAxios("http://127.0.0.1:8000/")
 const cookies = new Cookies();
 
 
